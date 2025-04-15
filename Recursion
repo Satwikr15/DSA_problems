@@ -1,0 +1,29 @@
+
+//functional approach
+// class Main {
+//     public static int fact(int n){
+//         if(n==1){
+//             return 1;
+//         }
+//         return n*fact(n-1);
+//     }
+//     public static void main(String[] args) {
+//       int n=5;
+//       System.out.println(fact(n));
+//     }
+// }
+
+//parameterized approach
+class Main {
+    public static int fact(int i, int m){
+        if(i==1){
+            return m;
+        }
+        m=m*i;
+        return fact(i-1,m);
+    }
+    public static void main(String[] args) {
+      int n=5;
+      System.out.println(fact(n,1));
+    }
+}
