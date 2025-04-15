@@ -27,3 +27,25 @@ class Main {
       System.out.println(fact(n,1));
     }
 }
+
+#reverse a array
+class Main {
+    public static void Rev(int[] arr,int i,int j){
+        if(i>=j){
+            return;
+        }
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        Rev(arr,i+1,j-1);
+    }
+
+    public static void main(String[] args) {
+      int[] arr={1,2,3,4,5};
+      int n=arr.length;
+      Rev(arr,0,n-1);
+      for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+}
