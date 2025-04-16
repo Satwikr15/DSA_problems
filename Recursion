@@ -49,3 +49,35 @@ class Main {
         }
     }
 }
+
+//Print all subsequences
+import java.util.*;
+
+public class Main {
+    public static void func(int ind, List<Integer> sub, int[] arr, int n) {
+        if (ind == n) {
+            // print current subset
+            for (int num : sub) {
+                System.out.print(num + " ");
+            }
+            System.out.println();
+            return;
+        }
+
+        // pick the current element
+        sub.add(arr[ind]);
+        func(ind + 1, sub, arr, n);
+
+        // not pick (backtrack)
+        sub.remove(sub.size() - 1);
+        func(ind + 1, sub, arr, n);
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {3, 1, 2};
+        List<Integer> sub = new ArrayList<>();
+        int n = arr.length;
+        func(0, sub, arr, n);
+    }
+}
+
