@@ -1,0 +1,32 @@
+
+//it is code for good count numbers and also math for exponent of number.
+
+class Main {
+static final long MOD = 1000000007;
+    public static long countgoodnumbers(int n){
+        int evenpossible = (n+1)/2;
+        int oddpossible = n/2;
+        
+        int evenWays=power(5,evenpossible);
+        int oddWays=power(4,oddpossible);
+        
+        return (evenWays * oddWays) % MOD;
+    } 
+    public static long power(int base,int exp){
+        long result = 1;
+        base %= MOD;
+
+        while (exp > 0) {
+            if (exp % 2 == 1) {
+                result = (result * base) % MOD;
+            }
+            base = (base * base) % MOD;
+            exp /= 2;
+        }
+        return result;
+    }
+    public static void main(String[] args) {
+        int n=4;
+        System.out.println(countgoodnumbers(n));
+    }
+}
