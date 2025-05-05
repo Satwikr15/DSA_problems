@@ -1,0 +1,37 @@
+class Main {
+    public static void main(String[] args) {
+        int m = 27;
+        int n = 3;
+        int result = findNthRoot(n, m);
+        System.out.println(result);
+    }
+
+    public static int findNthRoot(int n, int m) {
+        int low = 1;
+        int high = m;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            long power = power(mid, n);
+
+            if (power == m) {
+                return mid;
+            } else if (power < m) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return -1; // Nth root is not an integer
+    }
+
+    //Exponent logic
+    public static long power(int base, int exp) {
+        long result = 1;
+        for (int i = 1; i <= exp; i++) {
+            result *= base;
+            if (result > Long.MAX_VALUE) break;
+        }
+        return result;
+    }
+}
